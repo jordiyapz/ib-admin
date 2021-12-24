@@ -1,8 +1,8 @@
-import "./user.css";
-import { Publish } from "@mui/icons-material/";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextField1 from "../TextField1";
+import UploadBtn from "../UploadBtn";
+import "./user.css";
 
 const UserForm = ({ initialValues, onSubmit }) => {
   // Setting untuk Formik
@@ -69,15 +69,7 @@ const UserForm = ({ initialValues, onSubmit }) => {
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src={initialValues.avatar}
-                  alt={`Foto avatar ${initialValues.nama}`}
-                />
-                <label htmlFor="file">
-                  <Publish className="userUpdateIcon" />
-                </label>
-                <input type="file" id="file" style={{ display: "none" }} />
+                <UploadBtn name="avatar" />
               </div>
               <button className="userUpdateButton" type="submit">
                 {formik.isSubmitting ? "Loading..." : "Update"}
