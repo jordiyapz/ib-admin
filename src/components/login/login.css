@@ -1,0 +1,29 @@
+.loginWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.loginForm{
+    height: 260px;
+    width: 420px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(223, 223, 255);
+    border-radius: 10px;
+}
+
+.loginTitle{
+    margin: 20px 0;
+}
+
+.field{
+    margin-bottom: 10px !important;
+}
+
+.button{
+    background-color: rgb(180, 129, 228) !important;
+    margin: 10px 0;
+}

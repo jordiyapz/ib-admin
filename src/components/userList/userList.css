@@ -1,0 +1,11 @@
+.userList{
+    flex: 4;
+    padding-left: 20px;
+}
+
+.topBarList{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}

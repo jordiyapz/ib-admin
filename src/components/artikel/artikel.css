@@ -1,0 +1,24 @@
+.artikel{
+    flex: 4;
+    padding: 20px;
+}
+
+.artikelTite{
+    margin-bottom: 20px;
+}
+
+.konten{
+    margin-bottom: 10px;
+}
+
+.artikelWrapper{
+    margin: 10px 0 ;
+}
+
+.textField{
+    width: 100%;
+}
+
+.isiKonten{
+    width: 80%;
+}

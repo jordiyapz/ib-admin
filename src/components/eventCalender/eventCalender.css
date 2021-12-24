@@ -1,0 +1,28 @@
+.eventCalender{
+    flex: 4;
+    padding: 0 0 0 10px;
+    display: flex;
+}
+
+.calender{
+    padding: 0 !important;
+}
+
+.titleeventCalender{
+    margin-bottom: 20px;
+}
+
+.eventCalenderWrap{
+    margin-right: 25px;
+}
+
+.Wrapper2{
+    display: flex;
+    flex-direction: column;
+}
+
+.button{
+    margin-top: 20px !important;
+    background-color: rgb(72, 129, 235) !important;
+    width: 50% !important;
+}

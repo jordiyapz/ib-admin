@@ -1,0 +1,18 @@
+.broadcast{
+    flex: 4;
+    padding: 20px;
+}
+
+.titleBroadcast{
+    margin-bottom: 20px;
+}
+
+.broadcastContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.button{
+    width: 30%;
+}
