@@ -2,7 +2,14 @@ import { DeleteOutline } from "@mui/icons-material";
 import { Button, IconButton, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const ActionCell = ({ userId }) => {
+const ActionCell = ({ userId, onClick }) => {
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    if (onClick) {
+      onClick(userId, e);
+    }
+  };
+
   return (
     <Stack direction="row" spacing={1}>
       <Link
@@ -27,8 +34,8 @@ const ActionCell = ({ userId }) => {
           Edit
         </Button>
       </Link>
-      <IconButton>
-        <DeleteOutline style={{ color: "red", cursor: "pointer" }} />
+      <IconButton onClick={handleDelete}>
+        <DeleteOutline style={{ color: "red" }} />
       </IconButton>
     </Stack>
   );

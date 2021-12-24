@@ -1,14 +1,10 @@
 import "./user.css";
 import { Publish } from "@mui/icons-material/";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextField1 from "../TextField1";
 
 const UserForm = ({ initialValues, onSubmit }) => {
-  // Parsing data dari props.
-  // const { username, nama, alamat, email, no_hp, avatar } = initialData;
-  // const initialValues = { username, nama, alamat, email, no_hp, avatar };
-
   // Setting untuk Formik
   const formikSetup = {
     initialValues,

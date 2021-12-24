@@ -1,8 +1,7 @@
-import React from "react";
 import { useField, Field } from "formik";
 
 const TextField1 = (props) => {
-  const [field, meta, helper] = useField(props);
+  const [field, meta] = useField(props);
 
   return (
     <div>

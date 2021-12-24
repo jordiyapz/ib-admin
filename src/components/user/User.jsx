@@ -20,7 +20,7 @@ function User() {
   const [{ token, isLoggedIn }] = useLogin();
   const [{ data: userDataResult, loading: userLoading }, refetchUser] =
     useAxios(`${ENDPOINT}/admin/getUser`);
-  const [{ data: putResult, error: putError }, editUser] = useAxios(
+  const [, editUser] = useAxios(
     { url: `${ENDPOINT}/edit-ortu`, method: "PUT" },
     { manual: true }
   );
@@ -34,7 +34,7 @@ function User() {
   });
   if (!userLoading && !user) return <h1>User tidak ditemukan</h1>;
 
-  const handleSubmit = async (values, bag) => {
+  const handleSubmit = async (values) => {
     try {
       await editUser({
         headers: { "x-auth-token": token },

@@ -10,6 +10,7 @@ import User from "./components/user/User";
 import NewUser from "./components/newUser/NewUser";
 import Broadcast from "./components/broadcast/Broadcast";
 import Artikel from "./components/artikel/Artikel";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -21,13 +22,14 @@ function App() {
       <div className="container">
         <Sidebar />
         <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/users" element={<UserList />} />
-        <Route path="/user/:userId" element={<User />} />
-        <Route path="/newUser" element={<NewUser />} />
-        <Route path="/event" element={<EventCalender />} />
-        <Route path="/broadcast" element={<Broadcast />} />
-        <Route path="/artikel" element={<Artikel />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/user/:userId" element={<User />} />
+          <Route path="/newUser" element={<NewUser />} />
+          <Route path="/event" element={<EventCalender />} />
+          <Route path="/broadcast" element={<Broadcast />} />
+          <Route path="/artikel" element={<Artikel />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </div>
     </div>

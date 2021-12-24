@@ -1,10 +1,10 @@
-import "./userList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
-import { Add, DeleteOutline } from "@mui/icons-material/";
+import { Add } from "@mui/icons-material/";
 import { Link } from "react-router-dom";
 import useAxios from "axios-hooks";
 import ActionCell from "./ActionCell";
+import "./userList.css";
 
 const columnSchemas = [
   { field: "id", headerName: "ID", width: 70 },
@@ -26,9 +26,7 @@ const ENDPOINT_BASE = process.env.REACT_APP_ENDPOINT;
 
 export default function UserList() {
   // mengambil data user
-  const [{ data, loading, error }, refetch] = useAxios(
-    `${ENDPOINT_BASE}/admin/getUser`
-  );
+  const [{ data, loading, error }] = useAxios(`${ENDPOINT_BASE}/admin/getUser`);
   if (error) return <h1>Error fetching user</h1>;
 
   return (
