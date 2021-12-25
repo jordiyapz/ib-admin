@@ -1,9 +1,10 @@
 import { Publish } from "@mui/icons-material";
 import { useField } from "formik";
 import { customBase64 } from "../utils/base64";
+import FieldError from "./FieldError";
 
-const UploadBtn = (props) => {
-  const [field, , helper] = useField(props);
+const UploadBtn = ({ name, ...props }) => {
+  const [field, , helper] = useField({ name });
 
   // Unique ID
   const uid = `upload_btn_${Math.floor(Math.random() * 1000000)}`;
@@ -20,7 +21,7 @@ const UploadBtn = (props) => {
   };
 
   return (
-    <>
+    <div {...props}>
       <img
         className="userUpdateImg"
         src={field.value}
@@ -35,7 +36,8 @@ const UploadBtn = (props) => {
         style={{ display: "none" }}
         onChange={handleUpload}
       />
-    </>
+      <FieldError name={name} />
+    </div>
   );
 };
 

@@ -1,17 +1,13 @@
 import { useField, Field } from "formik";
+import FieldError from "./FieldError";
 
 const TextField1 = (props) => {
-  const [field, meta] = useField(props);
+  const [field] = useField(props);
 
   return (
     <div>
       <Field {...props} {...field} />
-      {
-        // Jika validasi field gagal
-        meta.touched && meta.error && (
-          <p style={{ color: "red", fontSize: "12px" }}>{meta.error}</p>
-        )
-      }
+      <FieldError name={props.name} />
     </div>
   );
 };
