@@ -2,11 +2,11 @@ import { DeleteOutline } from "@mui/icons-material";
 import { Button, IconButton, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const ActionCell = ({ userId, onClick }) => {
-  const handleDelete = (e) => {
+const ActionCell = ({ userId, onDelete }) => {
+  const handleDelete = async (e) => {
     e.stopPropagation();
-    if (onClick) {
-      onClick(userId, e);
+    if (onDelete) {
+      await onDelete(userId, e);
     }
   };
 

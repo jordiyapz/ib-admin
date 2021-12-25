@@ -6,28 +6,43 @@ import useAxios from "axios-hooks";
 import ActionCell from "./ActionCell";
 import "./userList.css";
 
-const columnSchemas = [
-  { field: "id", headerName: "ID", width: 70 },
-  { field: "nama", headerName: "Nama", width: 130 },
-  { field: "nik", headerName: "NIK", width: 120 },
-  { field: "email", headerName: "Email", width: 120 },
-  { field: "no_hp", headerName: "HP", width: 120 },
-  {
-    field: "action",
-    headerName: "Action",
-    width: 200,
-    sortable: false,
-    renderCell: (params) => <ActionCell userId={params.row.id} />,
-  },
-];
-
 // const ENDPOINT_BASE = "http://localhost:8081/api";
 const ENDPOINT_BASE = process.env.REACT_APP_ENDPOINT;
 
 export default function UserList() {
   // mengambil data user
-  const [{ data, loading, error }] = useAxios(`${ENDPOINT_BASE}/admin/getUser`);
+  const [{ data, loading, error }, refetchUsers] = useAxios(`${ENDPOINT_BASE}/admin/getUser`);
+  const [, deleteUser] = useAxios({ method: "DELETE" }, { manual: true });
   if (error) return <h1>Error fetching user</h1>;
+
+  const getDeleteEndpoint = (id) =>
+    `${ENDPOINT_BASE}/admin/users/${Number(id)}`;
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteUser({ url: getDeleteEndpoint(id) });
+      await refetchUsers();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const columnSchemas = [
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "nama", headerName: "Nama", width: 130 },
+    { field: "nik", headerName: "NIK", width: 120 },
+    { field: "email", headerName: "Email", width: 120 },
+    { field: "no_hp", headerName: "HP", width: 120 },
+    {
+      field: "action",
+      headerName: "Action",
+      width: 200,
+      sortable: false,
+      renderCell: (params) => (
+        <ActionCell userId={params.row.id} onDelete={handleDelete} />
+      ),
+    },
+  ];
 
   return (
     <div className="userList">

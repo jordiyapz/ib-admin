@@ -23,7 +23,7 @@ const NewUser = () => {
     },
     { manual: true }
   );
-  const [{}, refetchUser] = useAxios(
+  const [, refetchUser] = useAxios(
     process.env.REACT_APP_ENDPOINT + "/admin/getUser",
     { manual: true }
   );
